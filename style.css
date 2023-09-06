@@ -42,55 +42,6 @@ dialog::backdrop{
     backdrop-filter: blur(2px);
 }
 
-.popup .overlay{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 7);
-    z-index: 1; /*Es como van a estar ordenados los diferentes botones y popups en el eje Y, osea, quien tapa a quien*/
-    display: none;
-}
-
-.popup .contenido{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0); /*Reposiciona el popup y lo achica a 0 para hacerlo invisible*/
-    background: #fff;
-    width: 450px;
-    height: 220px;
-    z-index: 2;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.popup .cerrar-btn{
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 30px;
-    height: 30px;
-    background: black;
-    color: lightgray;
-    font-size: 25px;
-    font-weight: 600;
-    line-height: 30px;
-    text-align: center;
-    border-radius: 50%;
-}
-
-.popup.active .overlay{
-    display:block;
-}
-
-.popup.active .contenido{
-    transition: all 800ms ease-in-out;
-    transform: translate(-50%, -50%) scale(1);
-}
-
 #contGrilla{ /*le damos estilo a la grilla, la centramos y definimos la cantidad de filas*/
     display: grid;
     grid-template-columns: repeat(3,0fr);
@@ -107,6 +58,7 @@ dialog::backdrop{
     cursor: pointer;
 }
 
+/*Añado las lineas separadoras*/
 .medio{
     border-left: var(--line-style);
     border-right: var(--line-style);
