@@ -1,0 +1,126 @@
+:root{
+    --line-style: 5px solid;
+    --font-family: sans-serif;
+}
+
+body{
+    background-color: gray;
+    user-select: none; /*No permite que el usuario pueda seleccionar las grillas*/
+}
+
+h1{ /*definimos el titulo, le damos propiedades*/
+    text-align: center;
+    font-size: xx-large;
+    font-family: --font-family;
+    color: black;
+}
+
+dialog{
+    text-align: center;
+    min-width:23%;
+    min-height: 5%;
+    background-color: gray;
+    padding: 5rem;
+    border: unset;
+    border-radius: 30px;
+    font-size: x-large;
+    font-family: --font-family;
+}
+
+dialog h2{
+    font-family: sans-serif;
+    font-size: xx-large;
+}
+
+dialog button{
+    color: brown;
+    padding: 1rem;
+    font-size: x-large;
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(2px);
+}
+
+.popup .overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 7);
+    z-index: 1; /*Es como van a estar ordenados los diferentes botones y popups en el eje Y, osea, quien tapa a quien*/
+    display: none;
+}
+
+.popup .contenido{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /*Reposiciona el popup y lo achica a 0 para hacerlo invisible*/
+    background: #fff;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup .cerrar-btn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background: black;
+    color: lightgray;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.popup.active .overlay{
+    display:block;
+}
+
+.popup.active .contenido{
+    transition: all 800ms ease-in-out;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#contGrilla{ /*le damos estilo a la grilla, la centramos y definimos la cantidad de filas*/
+    display: grid;
+    grid-template-columns: repeat(3,0fr);
+    justify-content: center;
+}
+
+.cuadrado{ /*cambiamos las propiedes de los cuadrados de la grilla*/
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    cursor: pointer;
+}
+
+.medio{
+    border-left: var(--line-style);
+    border-right: var(--line-style);
+}
+
+.arriba{
+    border-bottom: var(--line-style);
+}
+
+.abajo{
+    border-top: var(--line-style);
+}
+
+.ganador{
+    background-color: green;
+}
+
